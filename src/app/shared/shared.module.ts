@@ -1,14 +1,39 @@
 import { NgModule, ModuleWithProviders  } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
-import { SharedServiceModule } from '../shared-service/shared-service.module';
+
+import {
+  MatAutocompleteModule,
+  MatButtonModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatDialogModule,
+  MatIconModule,
+  MatInputModule,
+  MatFormFieldModule,
+  MatPaginatorModule,
+  MatTableModule,
+  MatTooltipModule
+} from '@angular/material';
+
+import { ConfirmDialogComponent, ConfirmDialogModalComponent } from './confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    SharedServiceModule.forRoot(),
+    MatAutocompleteModule,
+    MatButtonModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatDialogModule,
+    MatIconModule,
+    MatInputModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatTableModule,
+    MatTooltipModule,
   ],
   exports: [ConfirmDialogComponent],
-  declarations: [ConfirmDialogComponent],
+  declarations: [ConfirmDialogComponent, ConfirmDialogModalComponent],
+  entryComponents: [ConfirmDialogModalComponent],
 })
 export class SharedModule { }
