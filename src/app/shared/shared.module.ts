@@ -1,11 +1,14 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders  } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import { SharedServiceModule } from '../shared-service/shared-service.module';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    SharedServiceModule.forRoot(),
   ],
-  declarations: [ConfirmDialogComponent]
+  exports: [ConfirmDialogComponent],
+  declarations: [ConfirmDialogComponent],
 })
 export class SharedModule { }
