@@ -1,1 +1,6 @@
-<app-confirm-dialog [button]="button" [title]="title" [content]="content" (confirmEvent)="receiveResultConfirm($event)"></app-confirm-dialog>
+<app-confirm-dialog [element]="element" 
+[title]="title" 
+[content]="content" 
+[confirmBt]="confirmBt" 
+[cancelBt]="cancelBt" 
+(confirmEvent)="receiveResultConfirm($event)"></app-confirm-dialog>

@@ -10,16 +10,18 @@ export class ConfirmDialogComponent implements OnInit {
 
   @ViewChild('div') div: ElementRef;
 
-  @Input() button: string;
+  @Input() element: string;
   @Input() title: string;
   @Input() content: string;
+  @Input() confirmBt: string;
+  @Input() cancelBt: string;
 
   constructor(private dialog: MatDialog) { }
 
   @Output() confirmEvent = new EventEmitter<boolean>();
 
   ngOnInit() {
-    this.div.nativeElement.innerHTML = this.button;
+    this.div.nativeElement.innerHTML = this.element;
   }
 
   emitConfirmEvent(resultConfirm) {
@@ -30,7 +32,7 @@ export class ConfirmDialogComponent implements OnInit {
     const dialogRef = this.dialog.open(ConfirmDialogModalComponent, {
       width: '443px',
       height: '276x',
-      data: { title: this.title, content: this.content }
+      data: { title: this.title, content: this.content, confirmBt: this.confirmBt, cancelBt: this.cancelBt }
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -48,12 +50,18 @@ export class ConfirmDialogComponent implements OnInit {
   templateUrl: './confirm-dialog-modal.component.html',
   styleUrls: ['./confirm-dialog.component.css'],
 })
-export class ConfirmDialogModalComponent {
+export class ConfirmDialogModalComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<ConfirmDialogModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
 
+  @ViewChild('content') content: ElementRef;
+
   onNoClick(): void {
     this.dialogRef.close();
+  }
+
+  ngOnInit() {
+    this.content.nativeElement.innerHTML = this.data.content;
   }
 }

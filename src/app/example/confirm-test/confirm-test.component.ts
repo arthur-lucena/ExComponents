@@ -10,11 +10,14 @@ export class ConfirmTestComponent implements OnInit {
   constructor() { }
 
   resultConfirm: boolean;
-  button = '<input type="button" value="openModal" />';
+  element = '<input type="button" value="openModal" />';
   title = 'Example Title';
-  content = 'Example content, example content, example content, example content, example content, example content, example content, ' +
+  content = '<p>Example content, example content, example content, example content, example content, example content, example content, ' +
             'example content, example content, example content, example content, example content, example content, example content,' +
-            'example content, example content, example content, example content, example content, example content, example content';
+            'example content, example content, example content, example content, example content, example content, example content</p>' +
+            '<p>u sure?</p>';
+  confirmBt = 'yes';
+  cancelBt = 'no';
 
   ngOnInit() {
   }
