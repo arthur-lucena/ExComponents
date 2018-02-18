@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ConfirmDialogService } from '../../shared-service/confirm-dialog/confirm-dialog.service';
 
 @Component({
@@ -12,10 +12,17 @@ export class ConfirmDialogComponent implements OnInit {
   constructor(private service: ConfirmDialogService) { }
 
   title: string;
+  @Input() content: string;
+
+  @Output() confirmEvent = new EventEmitter<boolean>();
 
   ngOnInit() {
     this.service.titleObservable.subscribe(title => {
       this.title = title;
     });
+  }
+
+  emitConfirmEvent(resultConfirm) {
+    this.confirmEvent.emit(resultConfirm);
   }
 }

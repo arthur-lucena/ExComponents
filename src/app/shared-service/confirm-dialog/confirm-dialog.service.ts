@@ -9,9 +9,6 @@ export class ConfirmDialogService {
   constructor() { }
 
   changeTitle(title: string) {
-    console.log(this.title.value);
     this.title.next(title);
-    console.log('test service');
-    console.log(this.title.value);
   }
 }

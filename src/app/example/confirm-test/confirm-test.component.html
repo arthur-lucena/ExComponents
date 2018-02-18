@@ -1,4 +1,4 @@
 <p>component test</p>
 <p>title shared by service</p>
 <input type="button" (click)="changeTitle()" value="changeTitle"/>
-<app-confirm-dialog></app-confirm-dialog>
+<app-confirm-dialog [content]="content" (confirmEvent)="receiveResultConfirm($event)"></app-confirm-dialog>

@@ -1,3 +1,8 @@
 <p>
   title: {{title}}
+</p>  
+<p>
+  content: {{content}}
 </p>
+<input type="button" (click)="emitConfirmEvent(true);" value="yes" />
+<input type="button" (click)="emitConfirmEvent(false);" value="no" />
